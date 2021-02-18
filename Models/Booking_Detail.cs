@@ -8,6 +8,7 @@ namespace RK_Hotels.Models
 {
     public class Booking_Detail
     {
+        [Key]
         public int Id { get; set; }
 
         [Required] 
