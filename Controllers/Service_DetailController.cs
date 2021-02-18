@@ -22,8 +22,7 @@ namespace RK_Hotels.Controllers
         // GET: Service_Detail
         public async Task<IActionResult> Index()
         {
-            var rK_HotelsDatabaseContext = _context.Service_Detail.Include(s => s.Branch_Detail);
-            return View(await rK_HotelsDatabaseContext.ToListAsync());
+            return View(await _context.Service_Detail.ToListAsync());
         }
 
         // GET: Service_Detail/Details/5
@@ -35,7 +34,6 @@ namespace RK_Hotels.Controllers
             }
 
             var service_Detail = await _context.Service_Detail
-                .Include(s => s.Branch_Detail)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (service_Detail == null)
             {
@@ -48,7 +46,6 @@ namespace RK_Hotels.Controllers
         // GET: Service_Detail/Create
         public IActionResult Create()
         {
-            ViewData["Branch_DetailId"] = new SelectList(_context.Set<Branch_Detail>(), "Id", "Branch_Name");
             return View();
         }
 
@@ -57,7 +54,7 @@ namespace RK_Hotels.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Availablity,Price,Opening_Hours,Branch_DetailId")] Service_Detail service_Detail)
+        public async Task<IActionResult> Create([Bind("Id,Name,Availablity,Price,Opening_Hours")] Service_Detail service_Detail)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +62,6 @@ namespace RK_Hotels.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Branch_DetailId"] = new SelectList(_context.Set<Branch_Detail>(), "Id", "Branch_Name", service_Detail.Branch_DetailId);
             return View(service_Detail);
         }
 
@@ -82,7 +78,6 @@ namespace RK_Hotels.Controllers
             {
                 return NotFound();
             }
-            ViewData["Branch_DetailId"] = new SelectList(_context.Set<Branch_Detail>(), "Id", "Branch_Name", service_Detail.Branch_DetailId);
             return View(service_Detail);
         }
 
@@ -91,7 +86,7 @@ namespace RK_Hotels.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Availablity,Price,Opening_Hours,Branch_DetailId")] Service_Detail service_Detail)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Availablity,Price,Opening_Hours")] Service_Detail service_Detail)
         {
             if (id != service_Detail.Id)
             {
@@ -118,7 +113,6 @@ namespace RK_Hotels.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Branch_DetailId"] = new SelectList(_context.Set<Branch_Detail>(), "Id", "Branch_Name", service_Detail.Branch_DetailId);
             return View(service_Detail);
         }
 
@@ -131,7 +125,6 @@ namespace RK_Hotels.Controllers
             }
 
             var service_Detail = await _context.Service_Detail
-                .Include(s => s.Branch_Detail)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (service_Detail == null)
             {

@@ -1,4 +1,4 @@
-﻿@model RK_Hotels.Models.Service_Detail
+﻿@model RK_Hotels.Models.Booking_Detail
 
 @{
     ViewData["Title"] = "Details";
@@ -7,32 +7,32 @@
 <h1>Details</h1>
 
 <div>
-    <h4>Service_Detail</h4>
+    <h4>Booking_Detail</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.Customer_Detail)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.Customer_Detail.Customer_Name)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Availablity)
+            @Html.DisplayNameFor(model => model.Hotel_Detail)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Availablity)
+            @Html.DisplayFor(model => model.Hotel_Detail.Branch_Name)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
+            @Html.DisplayNameFor(model => model.Room_Detail)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
+            @Html.DisplayFor(model => model.Room_Detail.Room_Type)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Opening_Hours)
+            @Html.DisplayNameFor(model => model.Service_Detail)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Opening_Hours)
+            @Html.DisplayFor(model => model.Service_Detail.Name)
         </dd>
     </dl>
 </div>

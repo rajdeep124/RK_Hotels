@@ -20,8 +20,5 @@ namespace RK_Hotels.Models
 
         public string Opening_Hours { get; set; }
 
-        //code to connect the Brand Class with Product Details Class
-        public int Branch_DetailId { get; set; }
-        public Branch_Detail Branch_Detail { get; set; }
     }
 }

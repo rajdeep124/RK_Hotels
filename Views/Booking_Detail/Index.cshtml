@@ -1,4 +1,4 @@
-﻿@model IEnumerable<RK_Hotels.Models.Service_Detail>
+﻿@model IEnumerable<RK_Hotels.Models.Booking_Detail>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,16 +13,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.Customer_Detail)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Availablity)
+                @Html.DisplayNameFor(model => model.Hotel_Detail)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Price)
+                @Html.DisplayNameFor(model => model.Room_Detail)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Opening_Hours)
+                @Html.DisplayNameFor(model => model.Service_Detail)
             </th>
             <th></th>
         </tr>
@@ -31,16 +31,16 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => item.Customer_Detail.Customer_Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Availablity)
+                @Html.DisplayFor(modelItem => item.Hotel_Detail.Branch_Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Price)
+                @Html.DisplayFor(modelItem => item.Room_Detail.Room_Type)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Opening_Hours)
+                @Html.DisplayFor(modelItem => item.Service_Detail.Name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

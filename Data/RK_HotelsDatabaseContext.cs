@@ -21,5 +21,7 @@ namespace RK_Hotels.Data
         public DbSet<RK_Hotels.Models.Service_Detail> Service_Detail { get; set; }
 
         public DbSet<RK_Hotels.Models.Customer_Detail> Customer_Detail { get; set; }
+
+        public DbSet<RK_Hotels.Models.Booking_Detail> Booking_Detail { get; set; }
     }
 }
